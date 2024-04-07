@@ -37,12 +37,12 @@ const [Ans, setAns] = useState();
 const handleClick = async ()=>{
 
   let ans = {
-    "selected_state":State,
-    "selected_district":District,
-    "selected_crop":Crop,
+    "State_Name":State,
+    "District_Name":District,
+    "Crop":Crop,
     "crop_year":Year,
-    "selected_season":Season,
-    "area":Area,
+    "Season":Season,
+    "Area":Area,
     "Production":Production
   }
 
@@ -74,7 +74,7 @@ const handleClick = async ()=>{
         <h2>Fill up the details (all details are compulsory to fill)</h2>
             <div class="form-group">
                 <label for="myDropdown">State:</label>
-                <select class="form-control" id="myDropdown" name="selected_state" onChange={(e)=>{
+                <select class="form-control" id="myDropdown" name="State_Name" onChange={(e)=>{
                   setState(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
@@ -88,7 +88,7 @@ const handleClick = async ()=>{
 
              <div class="form-group">
                 <label for="myDropdown">District:</label>
-                <select class="form-control" id="myDropdown" name="selected_district" onChange={(e)=>{
+                <select class="form-control" id="myDropdown" name="District_Name" onChange={(e)=>{
                   setDistrict(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
@@ -103,7 +103,7 @@ const handleClick = async ()=>{
 
               <div class="form-group">
                 <label for="myDropdown">Crop:</label>
-                <select class="form-control" id="myDropdown" name="selected_crop" onChange={(e)=>{
+                <select class="form-control" id="myDropdown" name="Crop" onChange={(e)=>{
                   setCrop(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
@@ -125,7 +125,7 @@ const handleClick = async ()=>{
               
               <div class="form-group">
                 <label for="myDropdown">Season:</label>
-                <select class="form-control" id="myDropdown" name="selected_season" onChange={(e)=>{
+                <select class="form-control" id="myDropdown" name="Season" onChange={(e)=>{
                   setSeason(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
