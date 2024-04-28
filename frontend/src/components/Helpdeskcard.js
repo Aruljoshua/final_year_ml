@@ -17,7 +17,7 @@ export default function Helpdeskcard(props) {
           <blockquote className="blockquote blockquote-custom bg-white p-5 shadow rounded help-card ">
             <div className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
             <p className="mb-0 mt-2 font-italic">{props.Data}</p>
-            <footer className="blockquote-footer pt-4 mt-4 border-top">AgroInOne---
+            <footer className="blockquote-footer pt-4 mt-4 border-top">RevolutionaryAgriculture---
               <cite title="Source Title">Help Desk</cite>
             </footer>
           </blockquote>

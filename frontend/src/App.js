@@ -16,6 +16,9 @@ import CartReview from "./routes/CartReview";
 import CropDetails from "./routes/CropDetails";
 import Predictloan from "./routes/Predictloan";
 import PredictCropRecommend from "./routes/PredictCropRecommend"
+import PredictRainFall from "./routes/PredictRainFall"
+import PredictFertilizerRecommand from "./routes/PredictFertilizerRecommend"
+import PredictCropType from "./routes/PredictCropType";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
           <Route exact path="/predict/crop" element={<PredictCrop />} />
           <Route exact path="/predict/loan" element={<Predictloan />} />
           <Route exact path="/predict/croprecommend" element={<PredictCropRecommend />} />
+          <Route exact path="/predict/fertilizerrecommend" element={<PredictFertilizerRecommand />} />
+          <Route exact path="/predict/rainfall" element={<PredictRainFall />} />
+          <Route exact path="/predict/croptype" element={<PredictCropType />} />
           <Route exact path="/marketplace" element={<Homepage/>} />
           <Route exact path="/review/cart" element={<CartReview/>} />
           <Route exact path="/food/details/:keys" element={<CropDetails/>} />

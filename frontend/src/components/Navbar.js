@@ -85,7 +85,7 @@ function NavBar() {
             height="40"
             className="d-inline-block align-top rounded-circle border"
           />
-          <Navbar.Brand href="/" className="ms-2 fs-5 nav-bar" style={{ color: 'white' }}>AgroInOne</Navbar.Brand>
+          <Navbar.Brand href="/" className="ms-2 fs-5 nav-bar" style={{ color: 'white' }}>RevolutionaryAgriculture</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" bg="dark" />
           <Navbar.Collapse id="responsive-navbar-nav" bg="dark">
             <Nav className="me-auto">
@@ -96,7 +96,10 @@ function NavBar() {
               <Nav.Link href="/schemes" className="pe-3  nav-bar" style={{ color: 'white' }} >SCHEMES</Nav.Link>
               {/* <Nav.Link href="helpdesk" className="pe-3  nav-bar" style={{ color: 'white' }} >HELPDESK</Nav.Link> */}
               <NavDropdown title="SERVICES" className="pe-3  nav-bar" style={{ color: 'white' }} id="nav-services">
-                      <NavDropdown.Item href="/helpdesk">HELPDESK</NavDropdown.Item>
+                      {/* <NavDropdown.Item href="/https://farmers-assistance.zapier.app/chat">HELPDESK</NavDropdown.Item> */}
+                      <NavDropdown.Item href="https://farmers-assistance.zapier.app/chat">HELPDESK</NavDropdown.Item>
+                      <NavDropdown.Item href="https://revolutionary-agriculture-weather.netlify.app/">Weather forecast </NavDropdown.Item>
+
                       <NavDropdown.Item href="/predict">
                         PREDICT
                       </NavDropdown.Item>

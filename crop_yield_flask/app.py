@@ -126,6 +126,8 @@ X_test_final = np.hstack((X_test_categorical.toarray(), X_test.drop(categorical_
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train_final, y_train)
 
+df1 = pd.read_csv('rainfall_in_india_1901-2015.csv')
+
 
 
 
@@ -214,6 +216,21 @@ def crop_recommendation():
     recommended_crop = predictions[0]
     a = {
        "answer":recommended_crop
+      }
+    return jsonify(a)
+
+@app.route('/rainfall', methods=['POST'])
+def rainfall():
+    temp3 = request.json
+    state = temp3['Region']
+    month = temp3['Month']
+    
+    state_data = df1[df1['SUBDIVISION'] == state]
+
+    # Calculate the average rainfall for the given month across all the years
+    avg_rainfall = state_data[month].mean()
+    a = {
+       "answer":avg_rainfall
       }
     return jsonify(a)
 
