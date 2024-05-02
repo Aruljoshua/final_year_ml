@@ -4,7 +4,7 @@ export const PredictCropType = async (inputData) => {
   try {
     const options = {
         method: 'POST',
-        url: 'http://127.0.0.1:5000//get_selected_value',
+        url: 'http://127.0.0.1:5000//crop_predict',
         headers: {
           'content-type': 'application/json',
         },

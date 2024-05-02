@@ -1,0 +1,13 @@
+{
+    "Maize": 0,
+    "Sugarcane": 1,
+    "Cotton": 2,
+    "Tobacco": 3,
+    "Paddy": 4,
+    "Barley": 5,
+    "Wheat": 6,
+    "Millets": 7,
+    "Oil seeds": 8,
+    "Pulses": 9,
+    "Ground Nuts": 10
+}

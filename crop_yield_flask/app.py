@@ -10,6 +10,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import OneHotEncoder
 import json
+
+import joblib
 import sys
 
 l1= LabelEncoder()
@@ -130,12 +132,122 @@ df1 = pd.read_csv('rainfall_in_india_1901-2015.csv')
 
 
 
+# fertilizer_recommendation
 
+from sklearn.preprocessing import LabelEncoder
+from sklearn.tree import DecisionTreeClassifier
+
+# Load the dataset
+data = pd.read_csv("fertilizer_recommendation.csv")
+
+# Label encoding for categorical features
+le_soil = LabelEncoder()
+data['Soil Type'] = le_soil.fit_transform(data['Soil Type'])
+le_crop = LabelEncoder()
+data['Crop Type'] = le_crop.fit_transform(data['Crop Type'])
+
+# Splitting the data into input and output variables
+X = data.iloc[:, :8]
+y = data.iloc[:, -1]
+
+# Training the Decision Tree Classifier model
+dtc = DecisionTreeClassifier(random_state=0)
+dtc.fit(X, y)
 
 
 # print(district_dict)
 # print(crop_dict)
 # print(season_dict)
+
+
+import pandas as pd
+import numpy as np
+import joblib
+from collections import Counter
+import cgitb
+cgitb.enable()
+import sys
+
+
+
+header = ['State_Name', 'District_Name', 'Season', 'Crop'] 
+
+class Question:
+    def __init__(self,column,value):
+        self.column =column
+        self.value=value
+    def match(self,example):
+        val = example[self.column]
+        return val == self.value
+    def match2(self,example):
+        if example == 'True' or example == 'true' or example == '1':
+            return True
+        else:
+            return False
+    def __repr__(self):
+        return "Is %s %s %s?" %(
+            header[self.column],"==",str(self.value))
+            
+            
+def class_counts(Data):
+    counts= {}
+    for row in Data:
+        label =row[-1]
+        if label not in counts:
+             counts[label] = 0
+        counts[label] += 1
+    return counts
+
+
+class Leaf:
+    def __init__(self,Data):
+        self.predictions = class_counts(Data)
+
+
+
+class Decision_Node:
+    def __init__(self,question,true_branch,false_branch):
+        self.question=question
+        self.true_branch = true_branch
+        self.false_branch = false_branch
+
+
+
+
+def print_tree(node,spacing=""):
+    if isinstance(node,Leaf):
+        print(spacing + "Predict",node.predictions)
+        return
+    print(spacing+str(node.question))
+    print(spacing + "--> True:")
+    print_tree(node.true_branch,spacing + " ")
+
+    print(spacing + "--> False:")
+    print_tree(node.false_branch,spacing + " ")
+
+
+
+
+def print_leaf(counts):
+    total = sum(counts.values())*1.0
+    probs = {}
+    for lbl in counts.keys():
+        probs[lbl] =str(int(counts[lbl]/total * 100)) + "%"
+    return probs
+
+
+
+
+def classify(row,node):
+    if isinstance(node,Leaf):
+        return node.predictions
+    if node.question.match(row):
+        return classify(row,node.true_branch)
+    else:
+        return classify(row,node.false_branch)
+
+
+dt_model_final= joblib.load('filetest2.pkl')
 
 # Route for serving the React frontend
 @app.route('/')
@@ -232,6 +344,51 @@ def rainfall():
     a = {
        "answer":avg_rainfall
       }
+    return jsonify(a)
+
+@app.route('/fertilizer_recommendation', methods=['POST'])
+def fertilizer_recommendation():
+    temp3 = request.json
+    jsonn = temp3['nitrogen']
+    jsonp = temp3['phosporous']
+    jsonk = temp3['potassium']
+    jsont = temp3['temp']
+    jsonh = temp3['humidity']
+    jsonsm = temp3['soilmoister']
+    jsonsoil = temp3['soiltype']
+    jsoncrop = temp3['crop']
+
+    soil_enc = le_soil.transform([jsonsoil])[0]
+    crop_enc = le_crop.transform([jsoncrop])[0]
+
+    # Get the user inputs and store them in a numpy array - Urea
+    #user_input = [[26,52,38,'Sandy','Maize',37,0,0]]
+
+    user_input = [[jsont,jsonh,jsonsm,soil_enc,crop_enc,jsonn,jsonk,jsonp]]
+
+    fertilizer_name = dtc.predict(user_input)
+    a = {
+       "answer":list(fertilizer_name)[0]
+      }
+    return jsonify(a)
+
+@app.route('/crop_predict', methods=['POST'])
+def crop_predict():
+    temp = request.json
+    state = temp['State_Name']
+    district = temp['District_Name']
+    season = temp['Season']
+    testing_data = [[state,district,season]]
+    for row in testing_data:
+        #print("Actual: %s. Predicted: %s" % (row[-1],print_leaf(classify(row,dt_model_final))))
+      Predict_dict = (print_leaf(classify(row,dt_model_final))).copy()
+    my_str=""
+    for key, value in Predict_dict.items() :
+      my_str+=key
+      my_str+=" " + ","
+    a = {
+       'answer':my_str
+    }
     return jsonify(a)
 
 

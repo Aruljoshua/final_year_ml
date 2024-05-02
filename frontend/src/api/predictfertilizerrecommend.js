@@ -4,7 +4,7 @@ export const PredictFertilizerRecommend = async (inputData) => {
   try {
     const options = {
         method: 'POST',
-        url: 'http://127.0.0.1:5000///fertilizer_recommendation',
+        url: 'http://127.0.0.1:5000/fertilizer_recommendation',
         headers: {
           'content-type': 'application/json',
         },

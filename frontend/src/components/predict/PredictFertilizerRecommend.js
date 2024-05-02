@@ -3,20 +3,15 @@ import "./pred.css"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import state from "../../api/state.json"
-import district from "../../api/district.json"
-import crop from "../../api/crop.json"
-import season from "../../api/season.json";
+import soiltype from "../../api/soil_moisture.json"
+import crop from "../../api/crop_type.json"
 import Button from 'react-bootstrap/Button';
 import { PredictFertilizerRecommend } from '../../api/predictfertilizerrecommend';
 
 
-let state_data = Object.keys(state)
-let district_data = Object.keys(district)
+let soil_type = Object.keys(soiltype)
+
 let crop_data = Object.keys(crop)
-let season_data = Object.keys(season)
-
-
 
 
 
@@ -122,17 +117,32 @@ const handleClick = async ()=>{
               </div>
 
               <div class="form-outline mb-2" >
-                <label class="form-label" for="typeNumber">Enter Soil Type</label>
-                <input value={SoilType} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <label for="myDropdown">Enter Soil Type:</label>
+                <select class="form-control" id="myDropdown" name="soiltype" onChange={(e)=>{
                   setSoilType(e.target.value)
-                }}/>
+                }}>
+                    <option value="" selected disabled hidden>
+                        Enter Soil Type
+                    </option>
+                    {soil_type.map((element, index) => {
+                      return <option value={element}>{element}</option>
+                    })}
+                </select>
+                 
               </div>
 
               <div class="form-outline mb-2" >
-                <label class="form-label" for="typeNumber">Enter Crop</label>
-                <input value={Crop} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <label for="myDropdown">Enter Crop:</label>
+                <select class="form-control" id="myDropdown" name="croptype" onChange={(e)=>{
                   setCrop(e.target.value)
-                }}/>
+                }}>
+                    <option value="" selected disabled hidden>
+                        Enter Crop
+                    </option>
+                    {crop_data.map((element, index) => {
+                      return <option value={element}>{element}</option>
+                    })}
+                </select>
               </div>
 
               <Button variant="primary mb-2 mt-2" onClick={handleClick}>Submit</Button>

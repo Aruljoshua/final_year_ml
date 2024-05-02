@@ -3,9 +3,9 @@ import "./pred.css"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import state from "../../api/state.json"
+import state from "../../api/state_croptype.json"
 import district from "../../api/district.json"
-import season from "../../api/season.json";
+import season from "../../api/season_crop_predict.json";
 import Button from 'react-bootstrap/Button';
 import { PredictCropType } from '../../api/predictcroptype';
 
