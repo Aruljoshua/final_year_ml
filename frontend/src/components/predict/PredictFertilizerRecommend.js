@@ -75,7 +75,7 @@ const handleClick = async ()=>{
 
               <div class="form-outline mb-1" >
                 <label class="form-label" for="typeNumber">Enter Nitrogen</label>
-                <input value={Nitrogen} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Nitrogen} type="number" id="typeNumber" class="form-control" placeholder="Nitrogen Eg:37" onChange={(e)=>{
                   setNitrogen(e.target.value)
                 }}/>
               </div>
@@ -83,35 +83,35 @@ const handleClick = async ()=>{
         
               <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Phosporous</label>
-                <input value={Phosporous} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Phosporous} type="number" id="typeNumber" class="form-control" placeholder="Phosphorus Eg:0"onChange={(e)=>{
                   setPhosporous(e.target.value)
                 }}/>
               </div>
 
               <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Potassium</label>
-                <input value={Potassium} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Potassium} type="number" id="typeNumber" class="form-control" placeholder="Pottasium Eg:0" onChange={(e)=>{
                   setPotassium(e.target.value)
                 }}/>
               </div>
 
               <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Temperature</label>
-                <input value={Temperature} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Temperature} type="number" id="typeNumber" class="form-control" placeholder="Temperature Eg:21" onChange={(e)=>{
                   setTemperature(e.target.value)
                 }}/>
               </div>
 
               <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Humidity</label>
-                <input value={Humidity} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Humidity} type="number" id="typeNumber" class="form-control" placeholder="Humidity Eg:52" onChange={(e)=>{
                   setHumidity(e.target.value)
                 }}/>
               </div>
 
               <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Soil Moisture</label>
-                <input value={SoilMoisture} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={SoilMoisture} type="number" id="typeNumber" class="form-control" placeholder="Soil Moisture Eg:30"onChange={(e)=>{
                   setSoilMoisture(e.target.value)
                 }}/>
               </div>
@@ -132,12 +132,12 @@ const handleClick = async ()=>{
               </div>
 
               <div class="form-outline mb-2" >
-                <label for="myDropdown">Enter Crop:</label>
+                <label for="myDropdown">Crop:</label>
                 <select class="form-control" id="myDropdown" name="croptype" onChange={(e)=>{
                   setCrop(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
-                        Enter Crop
+                        Select Crop
                     </option>
                     {crop_data.map((element, index) => {
                       return <option value={element}>{element}</option>
@@ -149,7 +149,7 @@ const handleClick = async ()=>{
 
         <br/>
         <p>
-          <h3>Yield : {Ans}</h3>
+          <h3>Recommended Fertilizer is : {Ans}</h3>
         </p>
     </div>
         </Col>

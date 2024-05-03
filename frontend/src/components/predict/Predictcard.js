@@ -58,7 +58,10 @@ export default function Predictcard() {
 					
 				</div>
 				<div className="postcard__bar"></div>
-				<div className="postcard__preview-txt">Loan approval prediction is a critical task for financial institutions to determine the creditworthiness of loan applicants. By leveraging machine learning and data analysis techniques, it is possible to predict the likelihood of loan approval based on a variety of factors such as credit history, income, debt-to-income ratio, and employment status. Accurate loan approval prediction can help lenders make informed decisions and reduce the risk of default and financial loss</div>
+				<div className="postcard__preview-txt">
+Crop recommendation relies on analyzing soil nutrient levels including Nitrogen, Phosphorus, and Potassium, alongside environmental factors such as Temperature, Humidity, and Rainfall to determine the most suitable crops for a given area. Soil pH is also considered as it impacts nutrient availability and crop growth
+
+</div>
 				<ul className="postcard__tagbox">
 					{/* <li className="tag__item"><i className="fas fa-tag mr-2"></i>Podcast</li>
 					<li className="tag__item"><i className="fas fa-clock mr-2"></i>55 mins.</li> */}

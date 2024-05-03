@@ -116,12 +116,7 @@ const handleClick = async ()=>{
               </div>
 
 
-              <div class="form-outline mb-2" >
-                <label class="form-label" for="typeNumber">Enter Crop Year</label>
-                <input value={Year} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
-                  setYear(e.target.value)
-                }}/>
-              </div>
+             
               
               <div class="form-group">
                 <label for="myDropdown">Season:</label>
@@ -139,24 +134,29 @@ const handleClick = async ()=>{
 
               <div class="form-outline mb-1" >
                 <label class="form-label" for="typeNumber">Enter Area</label>
-                <input value={Area} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Area} type="number" id="typeNumber" class="form-control"  placeholder="Area in Hectares" onChange={(e)=>{
                   setArea(e.target.value)
                 }}/>
+                
+            
+                
+               
               </div>
+              
 
         
-              <div class="form-outline mb-2" >
+              {/* <div class="form-outline mb-2" >
                 <label class="form-label" for="typeNumber">Enter Production Value</label>
                 <input value={Production} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
                   setProduction(e.target.value)
                 }}/>
-              </div>
+              </div> */}
 
               <Button variant="primary mb-2 mt-2" onClick={handleClick}>Submit</Button>
 
         <br/>
         <p>
-          <h3>Yield : {Ans}</h3>
+          <h3>Prediction crop yield (in Quintal) is : {Ans}</h3>
         </p>
     </div>
         </Col>

@@ -87,7 +87,7 @@ const handleClick =  async ()=>{
             <div className="form-group">
                 <label for="myDropdown">Gender:</label>
                 
-                <select className="form-control" id="myDropdown" name="gender" onChange={(e)=>{
+                <select className="form-control" id="myDropdown" name="gender"  onChange={(e)=>{
                   setGender(e.target.value)
                 }}>
                     <option value="" selected disabled hidden>
@@ -199,7 +199,7 @@ const handleClick =  async ()=>{
               <div className="form-group">
                
               <label class="form-label" for="typeNumber">Enter your income:</label>
-                <input value={ApInc} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={ApInc} type="number" id="typeNumber" class="form-control" placeholder="The amount of income the applicant earns" onChange={(e)=>{
                   setApInc(e.target.value)
                 }} />
               </div>
@@ -211,7 +211,7 @@ const handleClick =  async ()=>{
 
               <div className="form-group">
               <label class="form-label" for="typeNumber">Enter your partner/co-applicant income:</label>
-                <input value={CoInc} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={CoInc} type="number" id="typeNumber" class="form-control" placeholder="The amount of income the co-applicant earns" onChange={(e)=>{
                   setCoInc(e.target.value)
                 }} />
                 
@@ -224,7 +224,7 @@ const handleClick =  async ()=>{
 
               <div className="form-group">
               <label class="form-label" for="typeNumber">Enter Loan amount:</label>
-                <input value={LoanAmount} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={LoanAmount} type="number" id="typeNumber" class="form-control" placeholder="{$5 to $1,000}"onChange={(e)=>{
                   setLoanAmount(e.target.value)
                 }}/>
               </div>
@@ -236,7 +236,7 @@ const handleClick =  async ()=>{
 
               <div className="form-group">
                 <label class="form-label" for="typeNumber">Enter term of loan in months:</label>
-                <input value={Loanterm} type="number" id="typeNumber" class="form-control" onChange={(e)=>{
+                <input value={Loanterm} type="number" id="typeNumber" class="form-control" placeholder="The no. of days over which the loan will be paid (in Days)" onChange={(e)=>{
                   setLoanterm(e.target.value)
                 }} />
               </div>
